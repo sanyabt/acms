@@ -1,0 +1,51 @@
+{% extends 'home.html' %}
+{% block main_content %}
+
+<div class="container">
+<form method="GET" action=''>
+Search by Locker Name&nbsp;&nbsp;<input type='text' name='lname' placeholder="Locker Name"></input><br><br>
+Search by City&nbsp;&nbsp;<input type='text' name='city' placeholder="City"></input><br><br>
+Search by State&nbsp;&nbsp;<input type='text' name='state' placeholder="State"></input><br><br>
+Search by Pincode&nbsp;&nbsp;<input type='text' name='pincode' placeholder="Pincode"></input><br><br>
+<button type="submit" class="btn btn-danger">Find Lockers</button>
+</form>
+</div>
+
+<br><br>
+
+<div class="container">
+<table class="locker">
+	<tr>
+	<td width="20px"></td>
+	<th>Locker Name</th>
+	<th>City</th>
+	<th>State</th>
+	<th>Pincode</th>
+	<th>Total Lockers</th>
+	<th>Prime</th>
+	<th>Standard</th>
+	</tr>
+
+	{% for i in obj %}
+	<tr class="value">
+	<td width="20px"></td>
+	<td>{{i.locker_name}}</td>
+	<td>{{i.city}}</td>
+	<td>{{i.state}}</td>
+	<td>{{i.pincode}}</td>
+	<td>{{i.locker_capacity}}</td>
+	<td>{{obj2}}</td>
+	<td>{{obj3}}</td>
+	<td>
+		<form method="get" action="#">
+		<button type="submit" class="btn btn-primary">Reserve Lockers</button></form>
+	</td>
+	</tr>
+
+	{% endfor %}
+	</table>
+	</div>
+
+
+
+{% endblock %}
