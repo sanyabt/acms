@@ -27,6 +27,8 @@ class Table2(models.Model):
     locker = models.ForeignKey(Table1, models.DO_NOTHING)
     empty_slots_prime = models.IntegerField(blank=True, null=True)
     empty_slots_standard = models.IntegerField(blank=True, null=True)
+    current_prime = models.IntegerField(blank=True, null=True)
+    current_standard = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False

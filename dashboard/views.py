@@ -4,6 +4,7 @@ from django.db.models import Q
 
 # Create your views here.
 
+#Function to search for locker based on name, city, state, pincode. Queries current empty lockers from database.
 def dashboard(request):
 	obj2=''
 	obj3=''
@@ -15,11 +16,11 @@ def dashboard(request):
 		Q(locker_name=q1)|
 		Q(city=q2)|
 		Q(state=q3)|
-		Q(pincode=q4)).order_by('state')
+		Q(pincode=q4)).order_by('locker_name')
 	for ob in obj:
 		for row in ob.table2_set.all():
-			obj2 = row.empty_slots_prime
-			obj3 = row.empty_slots_standard
+			obj2 = row.current_prime
+			obj3 = row.current_standard
 
 	context = {
 	"obj": obj,
