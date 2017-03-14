@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+{%block title%} Add new {%endblock%}
+
+
+{% block content %}
+    <h3 class="newpost">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add a new locker</h3>
+		<form method="post" class="form-horizontal" action="" enctype="multipart/form-data">{% csrf_token %}
+
+
+    {%include 'blog/form-template.html'%}
+        <div class="form-group">
+            <div class="col-sm-offset-2-col-sm-3">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-success">Submit</button>
+                </div>
+        </div>
+    </form>
+{% endblock %}
+
+<!csrf token is for security purpose>
