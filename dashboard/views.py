@@ -18,9 +18,10 @@ def dashboard(request):
 		Q(state=q3)|
 		Q(pincode=q4)).order_by('locker_name')
 	for ob in obj:
-		for row in ob.table2_set.all():
-			obj2 = row.current_prime
-			obj3 = row.current_standard
+		for row in ob.prime_set.all():
+			obj2 = row.day0
+		for r in ob.standard_set.all():
+			obj3 = r.day0
 
 	context = {
 	"obj": obj,
