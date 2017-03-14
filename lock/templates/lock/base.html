@@ -1,0 +1,47 @@
+{% load staticfiles  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Portal</title>
+        <link rel="stylesheet" type="text/css" href ="{% static 'lock/bootstrap-3.3.7-dist/css/bootstrap.min.css'%}" />
+        <link rel="stylesheet" type="text/css" href ="{% static 'lock/style.css'%}" />
+        <link rel="stylesheet" type="text/css" href ="{% static 'lock/bootstrap-3.3.7-dist/css/bootstrap.css'%}" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#logo{
+margin-left:25%;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #fff;
+  
+  text-align: center;
+  background: green
+}
+hr.style1{
+	border-top: 1px dashed #8c8b8b;
+}
+</style>
+    </head>
+<body>
+ <div class="container">
+
+<div class="jumbotron">
+
+<span><img id="logo" src="{%static 'img/amazon-logo.png' %}" height="auto" width="50%"/></span>
+  
+
+</div>
+ </div>
+<br>
+<br>
+{% block main_content %}
+{% endblock %}
+</body>
+</html>
