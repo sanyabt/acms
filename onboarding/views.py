@@ -50,7 +50,7 @@ def post_list(request):
             Q(city__icontains=query)|
             Q(state__icontains=query)|
             Q(locker_name__icontains=query)|
-            Q(Pincode__icontains=query)|
+            Q(pincode__icontains=query)|
             Q(standard_capacity__icontains=query)|
             Q(prime_capacity__icontains=query)|
             Q(locker_id__icontains=query)
