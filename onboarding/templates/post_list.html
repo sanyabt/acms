@@ -13,11 +13,14 @@
 
       <thead>
     <tr>
+    <th>LockerID</th>
+    <th>Locker name</th>
       <th>City</th>
       <th>State</th>
-      <th>ZipCode</th>
-        <th>Locker name</th>
-        <th>Capacity</th>
+      <th>PinCode</th>
+        
+        <th>Prime_Capacity</th>
+        <th>Standard_Capacity</th>
         <th>Update</th>
         <th>Delete Record</th>
     </tr>
@@ -29,7 +32,7 @@
       {% for post in posts %}
    <tr>
 
-        <td> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.city }}</td><td>{{ post.state }}</td><td>{{ post.Pincode }}</td><td>{{ post.locker_name }}</td><td>{{ post.capacity}}</td></a>
+        <td> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.locker_id }}</td><td>{{ post.locker_name }}</td><td>{{ post.city }}</td><td>{{ post.state }}</td><td>{{ post.pincode }}</td><td>{{ post.prime_capacity }}</td><td>{{ post.standard_capacity}}</td></a>
 
         <td><a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
         <td>
