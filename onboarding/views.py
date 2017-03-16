@@ -51,8 +51,8 @@ def post_list(request):
             Q(state__icontains=query)|
             Q(locker_name__icontains=query)|
             Q(Pincode__icontains=query)|
-            Q(locker_capacity__icontains=query)|
-            Q(ratio__icontains=query)|
+            Q(standard_capacity__icontains=query)|
+            Q(prime_capacity__icontains=query)|
             Q(locker_id__icontains=query)
             ).distinct()
     return render(request, 'blog/post_list.html', {'posts': posts})

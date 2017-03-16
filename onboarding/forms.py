@@ -7,7 +7,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Table1 #will follow the Post Model
-        fields = ('locker_id','locker_name','city','state','pincode','locker_capacity','ratio')
+        fields = ('locker_id','locker_name','city','state','pincode','prime_capacity','standard_capacity')
 
 
 """
