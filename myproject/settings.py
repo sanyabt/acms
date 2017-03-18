@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'dashboard',
     'lock',
     'blog',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -90,6 +91,9 @@ DATABASES = {
     }
 }
 
+CRONJOBS = [
+    ('*/5 * * * *', 'dashboard.cron.my_job')
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

@@ -2,19 +2,18 @@
 
 {% extends 'home.html' %}
 {% block main_content %}
-
+<p><strong>Search lockers by:</strong></p>
 <div class="container">
-<h2>Search by</h2><br><br>
-<form method="GET" action=''>
-Locker Name&nbsp;&nbsp;<input type='text' name='lname' placeholder="Locker Name"></input><br><br>
-City&nbsp;&nbsp;<input type='text' name='city' placeholder="City"></input><br><br>
-State&nbsp;&nbsp;<input type='text' name='state' placeholder="State"></input><br><br>
-Pincode&nbsp;&nbsp;<input type='text' name='pincode' placeholder="Pincode"></input><br><br>
-Enter date&nbsp;&nbsp;<input type='date' name='date'></input><br><br>
+<form method="post" action="{% url "dashboard" %}">{% csrf_token %}
+{{ form.as_p }}
+<!--Search by Locker Name&nbsp;&nbsp;<input type='text' name='locker_name' placeholder="Locker Name"></input><br><br>
+Search by City&nbsp;&nbsp;<input type='text' name='city' placeholder="City"></input><br><br>
+Search by State&nbsp;&nbsp;<input type='text' name='state' placeholder="State"></input><br><br>
+Search by Pincode&nbsp;&nbsp;<input type='text' name='pincode' placeholder="Pincode"></input><br><br>
+Enter date&nbsp;&nbsp;<input type='date' name='date'></input><br><br>-->
 <button type="submit" class="btn btn-danger">Find Lockers</button>
 </form>
 </div>
-
 <br><br>
 
 <div class="container">
@@ -37,15 +36,15 @@ Enter date&nbsp;&nbsp;<input type='date' name='date'></input><br><br>
 	<td>{{i.city}}</td>
 	<td>{{i.state}}</td>
 	<td>{{i.pincode}}</td>
-	<td>{{i.locker_capacity}}</td>
+	<td>100</td>
 	<td>{{obj2}}</td>
 	<td>{{obj3}}</td>
+
 	</tr>
 
 	{% endfor %}
 	</table>
 	</div>
-
-
-
 {% endblock %}
+
+

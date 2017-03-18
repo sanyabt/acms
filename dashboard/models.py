@@ -8,8 +8,8 @@ class Table1(models.Model):
     city = models.CharField(max_length=45, blank=True, null=True)
     state = models.CharField(max_length=45, blank=True, null=True)
     pincode = models.CharField(max_length=45, blank=True, null=True)
-    locker_capacity = models.CharField(max_length=45, blank=True, null=True)
-    ratio = models.FloatField()
+    prime_capacity = models.CharField(max_length=45, blank=True, null=True)
+    standard_capacity = models.CharField(max_length=45, blank=True, null=True)
 
     class Meta:
         managed = False
