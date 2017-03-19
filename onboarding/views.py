@@ -85,6 +85,26 @@ def login_user(request):
             return render(request, 'blog/login.html', {'error_message': 'Invalid login'})
     return render(request, 'blog/login.html')
 
+
+from django.http import HttpResponse
+def login_operational_user(request):
+    if request.method == "POST":
+        mail = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=mail, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return HttpResponse("Your app")
+            else:
+                return render(request, 'blog/loginoperational.html', {'error_message': 'Your account has been disabled'})
+        else:
+            return render(request, 'blog/loginoperational.html', {'error_message': 'Invalid login'})
+    return render(request, 'blog/loginoperational.html')
+
+
+
+
 def logout_view(request):
     logout(request)
     posts = Table1.objects.all()
