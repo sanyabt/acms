@@ -1,0 +1,12 @@
+{% extends 'lock/base.html' %}
+{% load staticfiles%}
+{% load lock_extras %}
+{% block main_content %}
+<h1>Successfully placed an order</h1>
+<a href ="{% url 'item' %}"><button>Place another order</button></a>
+{{quantity}}
+{{name}}
+
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'lock/base.html' %}
+{% load staticfiles%}
+{% load lock_extras %}
+{% block main_content %}
+<center>
+<div class="container">
+
+<div class="inside"><img id="item" style="border:5px solid black" src="{%static 'img/item.jpg' %}" height="auto" width="200px"/></div>
+
+<div style="margin-top:20px"><form action="{% url 'results' %}"  method="get">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form></div>
+
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
