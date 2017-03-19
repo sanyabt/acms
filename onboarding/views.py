@@ -95,6 +95,8 @@ def login_operational_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
+                #posts = Table1.objects.all()
+                #return render(request, 'blog/post_list.html', {'posts': posts})
                 return HttpResponse("Your app")
             else:
                 return render(request, 'blog/loginoperational.html', {'error_message': 'Your account has been disabled'})
