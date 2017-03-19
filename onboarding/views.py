@@ -130,10 +130,10 @@ def login_new_user(request):
 
 
 
+from django.http import HttpResponse
 def logout_view(request):
     logout(request)
-    posts = Table1.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return HttpResponse("You have been successfuly logged out")
 
 
 def register(request):
