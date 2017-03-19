@@ -62,7 +62,14 @@
 {%endif%}
 
 
-
+          {%if not user.is_authenticated%}
+    <li class="nav navbar-nav " >
+       <a href = "{% url 'login_new_user' %}">
+       <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+       <font face="ArialBlack" color = "" size="50"></font>User&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   </a>
+   </li>
+     {%endif%}
 
 {%if not user.is_authenticated%}
       <li  class="nav navbar-nav navbar-right">
@@ -97,6 +104,11 @@
    </li>
      {%endif%}
 
+       
+       {%if not user.is_authenticated%}
+<img src="http://www.jazva.com/cm/Amazon-logo-700x433.jpg"  align="middle">
+
+{%endif%}
 
      {%if user.is_authenticated%}
     <li  class="nav navbar-nav navbar-right">
