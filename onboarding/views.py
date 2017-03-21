@@ -26,19 +26,37 @@ def post_new(request):
         form = PostForm()
     return render(request, 'blog/post_edit.html', {'form': form})
 
+from django.http import HttpResponse
+from .models import prime , standard
 
 def post_edit(request, pk):
     post = get_object_or_404(Table1, pk=pk)
-    #categories = Category.objects.all
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.save()
-            return redirect('post_detail', pk=pk)
+            CapacityPrime = request.POST.get('prime_capacity')
+            CapacityPrime = int(CapacityPrime)
+            CapacityStd = request.POST.get('standard_capacity')
+            CapacityStd = int(CapacityStd)
+            #ID = request.POST.get('locker_id')
+            #occupiedPrime = select prime.day2 from prime where prime.locker_id = ID 
+            ob = prime.objects.get(locker_id=pk)
+            occupiedPrime = ob.day2
+
+            ob2 = standard.objects.get(locker_id=pk)
+            occupiedStd = ob2.day5
+                       
+            if CapacityPrime >= occupiedPrime and  CapacityStd >=occupiedStd :
+
+                post = form.save(commit=False)
+                post.save()
+                return redirect('post_detail', pk=pk)
+            else :
+                return HttpResponse("ERROR : Capacity allotted is less than occupied slots.")
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
 
 
 #queryset_list=queryset_list.filter, cant use queryset as queryset is empty
